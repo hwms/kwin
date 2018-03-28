@@ -238,6 +238,8 @@ AbstractClient *FocusChain::nextForDesktop(AbstractClient *reference, uint deskt
 void FocusChain::makeFirstInChain(AbstractClient *client, QList< AbstractClient * >& chain)
 {
     chain.removeAll(client);
+    chain.append(client);
+    return;
     if (client->isMinimized()) { // add it before the first minimized ...
         for (int i = chain.count()-1; i >= 0; --i) {
             if (chain.at(i)->isMinimized()) {
